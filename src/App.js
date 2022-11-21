@@ -2,10 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage'
-import PeopleList from './components/GovEmployee/GovEmployeeList/GovEmployeeList';
 import NavigationBar from './components/NavigationBar/NavigationBar';
-import PeopleDetails from './components/GovEmployee/GovEmployeeDetails/GovEmployeeDetails';
-import AddPeople from './components/GovEmployee/AddGovEmployee/AddGovEmployee';
 import { useState } from 'react';
 import Footer from './components/Footer/Footer';
 import ErrorPage from './pages/ErrorPage';
@@ -14,17 +11,18 @@ import GovEmployeeDetails from './components/GovEmployee/GovEmployeeDetails/GovE
 import AddGovEmployee from './components/GovEmployee/AddGovEmployee/AddGovEmployee';
 
 function App() {
-  const apiURL = "https://ironrest.cyclic.app/ironrh-91"
+  const apiURL = "https://ironrest.cyclic.app/servidorespublicos";
   
   const [form, setForm] = useState({
-    name: "",
-    salary: "",
+    matricula: "",
+    nome: "",
+    foto: "",
+    orgao: "",
+    vinculo: "",
+    cargo: "",
+    lotacao: "",
     email: "",
-    phone: "",
-    department: "",
-    admissionDate: "",
-    status: "",
-    active: true
+    telefone:""
   }) 
 
   return (

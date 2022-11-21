@@ -25,26 +25,28 @@ function GovEmployeeList({ apiURL }) {
     }, []);
 
     const deleteEmployee = async (id) => {
-        await axios.delete(`${apiURL}/${id}`)
-        navigate("/listarServidores")
+            await axios.delete(`${apiURL}/${id}`);
+            navigate("/listarServidores");
     };
 
     const renderEmployees = employees
-        .filter((employee) => employee.name.toLowerCase().includes(search.toLowerCase()))
+        .filter((employee) => employee.nome.toLowerCase().includes(search.toLowerCase()))
         .map((employee) => {
             return (
                 <tr key={employee._id}>
                     <td>
                         <img src="https://abctreinamentos.com.br/wp-content/uploads/2020/03/8842604_deec_2.jpg" width="50" heigth="50" alt=""/>  
                     </td>
-                    <td>{employee.name}</td>
+                    <td>{employee.nome}</td>
+                    <td>{employee.cargo}</td>
+                    <td>{employee.orgao}</td>
+                    <td>{employee.lotacao}</td>
                     <td>{employee.email}</td>
-                    <td>{employee.department}</td>
-                    <td>{employee.status}</td>
+                    <td>{employee.telefone}</td>
                     <td>
                         <Link className="btn btn-outline-primary btn-sm m-1" role="button" to={`/listarServidor/${employee._id}`}>Detalhar</Link>
                         <Link className="btn btn-outline-secondary btn-sm m-1" role="button" to="#">Alterar</Link>
-                        <Button variant="danger" size="sm" onClick={() => deleteEmployee(employee._id)}>Excluir</Button>     
+                        <Button variant="danger" size="sm" onClick={() => {if (window.confirm('Deseja realmente EXCLUIR?')) deleteEmployee(employee._id)}}>Excluir</Button>     
                     </td>
                 </tr>
             )
@@ -74,9 +76,11 @@ function GovEmployeeList({ apiURL }) {
                         <tr>
                             <th>Foto</th>
                             <th>Nome</th>
-                            <th>Endereço de e-mail</th>
-                            <th>Departamento</th>
-                            <th>Status</th>
+                            <th>Cargo</th>
+                            <th>Órgão</th>
+                            <th>Lotação</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
                             <th>Ações</th>
                         </tr>
                     </thead>

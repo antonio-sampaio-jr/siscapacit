@@ -4,7 +4,6 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt, faPhone, faCalendarCheck, faCircleCheck, faBuildingUser, faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
-import EditPeople from "../EditGovEmployee/EditGovEmplyoee";
 
 function GovEmployeeDetails({ apiURL }) {
     const [employee, setEmployee] = useState({})
