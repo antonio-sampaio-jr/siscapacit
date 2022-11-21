@@ -42,7 +42,6 @@ function GovEmployeeList({ apiURL }) {
                     <td>{employee.orgao}</td>
                     <td>{employee.lotacao}</td>
                     <td>{employee.email}</td>
-                    <td>{employee.telefone}</td>
                     <td>
                         <Link className="btn btn-outline-primary btn-sm m-1" role="button" to={`/listarServidor/${employee._id}`}>Detalhar</Link>
                         <Link className="btn btn-outline-secondary btn-sm m-1" role="button" to="#">Alterar</Link>
@@ -80,8 +79,7 @@ function GovEmployeeList({ apiURL }) {
                             <th>Órgão</th>
                             <th>Lotação</th>
                             <th>Email</th>
-                            <th>Telefone</th>
-                            <th>Ações</th>
+                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
