@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAt, faPhone, faCalendarCheck, faCircleCheck, faBuildingUser, faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
+import { faAt, faPhone, faCalendarCheck, faCircleCheck, faBuildingUser} from "@fortawesome/free-solid-svg-icons";
 
 function GovEmployeeDetails({ apiURL }) {
     const [employee, setEmployee] = useState({})
@@ -23,45 +23,72 @@ function GovEmployeeDetails({ apiURL }) {
     }, [id])
    
     return (
-        <Container style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center">
+        <Container style={{ height: '80vh' }} className="d-flex justify-content-center align-items-center">
             <Card className="text-center w-100">
                 <Card.Header>
                     <Card.Title className="m-0">
-                        <h3>{employee.name}</h3>
+                        <h3>{employee.nome}</h3>
                     </Card.Title>
-                    { employee.active && <h6 className="text-success">Este funcionário está ativo na empresa</h6>}
-                    { !employee.active && <h6 className="text-secondary">Este funcionário não está ativo na empresa</h6> }
                 </Card.Header>
                 <Card.Body>
-                    <Card.Title>Informações trabalhista</Card.Title>
+                    <Card.Title>Informações Funcionais</Card.Title>
+                    < p/>
                     <Row>
                         <Col>
+                            <Card.Img variant="top" src={employee.foto} />
+                        </Col>
+                        <Col>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faCalendarCheck} /> {employee.admissionDate}
+                                <FontAwesomeIcon icon={faCircleCheck} /> Matrícula: {employee.matricula}
                             </Card.Text>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faCircleCheck} /> {employee.status}
+                                <FontAwesomeIcon icon={faCircleCheck} /> Órgão: {employee.orgao}
+                            </Card.Text>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCircleCheck} /> Cargo: {employee.cargo}
                             </Card.Text>
                         </Col>
                         <Col>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faMoneyCheckDollar} /> R${employee.salary},00
+                                <FontAwesomeIcon icon={faCircleCheck} /> Lotação: {employee.lotacao}
                             </Card.Text>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faBuildingUser} /> {employee.department}
+                                <FontAwesomeIcon icon={faBuildingUser} /> Exercício: {employee.exercicio}
+                            </Card.Text>
+                        </Col>
+                        <Col>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCircleCheck} /> Vínculo: {employee.vinculo}
+                            </Card.Text>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCalendarCheck} /> Data de Admissão: {employee.dataAdmissao}
                             </Card.Text>
                         </Col>
                     </Row>
                     <Row>
-                        <Card.Title>Informações de contato</Card.Title>
+                        <Card.Title>Informações Pessoais</Card.Title>
                         <Col>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faAt} /> {employee.email}
+                                <FontAwesomeIcon icon={faAt} /> Email: {employee.email}
+                            </Card.Text>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faPhone} /> Telefone: {employee.telefone}
                             </Card.Text>
                         </Col>
                         <Col>
                             <Card.Text>
-                                <FontAwesomeIcon icon={faPhone} /> {employee.phone}
+                                <FontAwesomeIcon icon={faPhone} /> Celular: {employee.celular}
+                            </Card.Text>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCircleCheck} /> CPF: {employee.cpf}
+                            </Card.Text>
+                        </Col>
+                        <Col>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCalendarCheck} /> Data de Nascimento: {employee.dataNascimento}
+                            </Card.Text>
+                            <Card.Text>
+                                <FontAwesomeIcon icon={faCircleCheck} /> Naturalidade: {employee.Naturalidade}
                             </Card.Text>
                         </Col>
                     </Row>

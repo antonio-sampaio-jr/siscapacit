@@ -35,7 +35,7 @@ function GovEmployeeList({ apiURL }) {
             return (
                 <tr key={employee._id}>
                     <td>
-                        <img src="https://abctreinamentos.com.br/wp-content/uploads/2020/03/8842604_deec_2.jpg" width="50" heigth="50" alt=""/>  
+                        <img src={employee.foto} width="50" heigth="50" alt=""/>  
                     </td>
                     <td>{employee.nome}</td>
                     <td>{employee.cargo}</td>
@@ -46,7 +46,7 @@ function GovEmployeeList({ apiURL }) {
                     <td>
                         <Link className="btn btn-outline-primary btn-sm m-1" role="button" to={`/listarServidor/${employee._id}`}>Detalhar</Link>
                         <Link className="btn btn-outline-secondary btn-sm m-1" role="button" to="#">Alterar</Link>
-                        <Button variant="danger" size="sm" onClick={() => {if (window.confirm('Deseja realmente EXCLUIR?')) deleteEmployee(employee._id)}}>Excluir</Button>     
+                        <Button variant="danger" size="sm" onClick={() => {window.confirm("Deseja realmente EXCLUIR?") && deleteEmployee(employee._id)}}>Excluir</Button>     
                     </td>
                 </tr>
             )
