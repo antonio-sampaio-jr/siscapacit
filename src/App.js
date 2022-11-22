@@ -10,9 +10,13 @@ import GovEmployeeList from "./components/GovEmployee/GovEmployeeList/GovEmploye
 import GovEmployeeDetails from "./components/GovEmployee/GovEmployeeDetails/GovEmployeeDetails";
 import AddGovEmployee from "./components/GovEmployee/AddGovEmployee/AddGovEmployee";
 import EditGovEmployee from "./components/GovEmployee/EditGovEmployee/EditGovEmplyoee";
+import CourseList from "./components/Courses/CourseList/CourseList";
+import CourseDetails from "./components/Courses/CourseDetails/CourseDetails";
+import AddCourse from "./components/Courses/AddCourse/AddCourse";
+import EditCourse from "./components/Courses/EditCourse/EditCourse";
 
 function App() {
-  const apiURL = "https://ironrest.cyclic.app/servidorespublicos";
+  const apiURL = "https://ironrest.cyclic.app/cursos";
 
   const [form, setForm] = useState({
     matricula: "",
@@ -55,6 +59,26 @@ function App() {
           path="//editarServidor/:id"
           element={
             <EditGovEmployee apiURL={apiURL} form={form} setForm={setForm} />
+          }
+        />
+        <Route
+          path="/listarCursos"
+          element={<CourseList apiURL={apiURL} />}
+        />
+        <Route
+          path="/listarCurso/:id"
+          element={<CourseDetails apiURL={apiURL} />}
+        />
+        <Route
+          path="/cadastrarCurso"
+          element={
+            <AddCourse apiURL={apiURL} form={form} setForm={setForm} />
+          }
+        />
+        <Route
+          path="//editarCurso/:id"
+          element={
+            <EditCourse apiURL={apiURL} form={form} setForm={setForm} />
           }
         />
         <Route path="*" element={<ErrorPage />} />
