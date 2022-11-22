@@ -1,17 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditGovEmployee({ apiURL, form, setForm }) {
     const navigate = useNavigate();
-    const [employee, setEmployee] = useState({});
     const { id } = useParams();
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     useEffect(() => {
         const fetchEmployee = async () => {
@@ -107,8 +101,8 @@ function EditGovEmployee({ apiURL, form, setForm }) {
             <Col>
               <Form.Group>
                 <Form.Label>Alterar o Tipo de vínculo?</Form.Label>
-                <Form.Select name="vinculo" onChange={handleChange} value={form.vinculo}>
-                  <option value="0">Selecione uma opção</option>
+                <Form.Select name="vinculo" onChange={handleChange} >
+                  <option value={form.vinculo}>{form.vinculo}</option>
                   <option value="Estatutário">Estatutário</option>
                   <option value="Comissionado">Comissionado</option>
                   <option value="Terceirizado">Terceirizado</option>
@@ -120,7 +114,7 @@ function EditGovEmployee({ apiURL, form, setForm }) {
               <Form.Group>
                 <Form.Label>Data de admissão do servidor</Form.Label>
                 <Form.Control
-                  type="date"
+                  type="text"
                   placeholder="Alterar a data de admissão do servidor?"
                   name="dataAdmissao"
                   value={form.dataAdmissao}
@@ -210,7 +204,7 @@ function EditGovEmployee({ apiURL, form, setForm }) {
               <Form.Group>
                 <Form.Label>Data de nascimento do servidor</Form.Label>
                 <Form.Control
-                  type="date"
+                  type="text"
                   placeholder="Alterar da Data de nascimento do servidor?"
                   name="dataNascimento"
                   value={form.dataNascimento}
@@ -244,7 +238,7 @@ function EditGovEmployee({ apiURL, form, setForm }) {
             </Col>
           </Row>
           <p />
-          <Button variant="secondary" onClick={() => navigate(-1)}>
+          <Button variant="secondary" onClick={() => navigate(-1)} style={{margin:"10px"}}>
             Voltar
           </Button>
           <Button variant="success" type="submit">
