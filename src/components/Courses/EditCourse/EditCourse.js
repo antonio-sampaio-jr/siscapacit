@@ -3,40 +3,40 @@ import { useEffect } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-function EditCourse({ apiURL, form, setForm }) {
+function EditCourse({ apiURLCourses, formCourses, setFormCourses }) {
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchEmployee = async () => {
-      const response = await axios.get(`${apiURL}/${id}`);
-      setForm(response.data);
+    const fetchCourse = async () => {
+      const response = await axios.get(`${apiURLCourses}/${id}`);
+      setFormCourses(response.data);
     };
 
-    fetchEmployee();
+    fetchCourse();
   }, [id]);
 
   // monitorar todas as mudanças do nosso formulário
   const handleChange = (e) => {
     // monitora alterações no checkbox
     if (e.target.name === "active") {
-      setForm({ ...form, active: e.target.checked });
+      setFormCourses({ ...formCourses, active: e.target.checked });
       return;
     }
 
     // monitora alterações nos outros inputs
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormCourses({ ...formCourses, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const clone = { ...form };
+      const clone = { ...formCourses };
       delete clone._id;
 
-      await axios.put(`${apiURL}/${id}`, clone);
-      navigate("/listarServidores");
+      await axios.put(`${apiURLCourses}/${id}`, clone);
+      navigate("/listarCursos");
     } catch (error) {
       console.log(error);
     }
@@ -45,41 +45,41 @@ function EditCourse({ apiURL, form, setForm }) {
   return (
     <Container>
       <p />
-      <h2>Alterar Servidor</h2>
+      <h2>Alterar Curso</h2>
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Número da matrícula do servidor</Form.Label>
+              <Form.Label>Id do curso</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o número da matrícula?"
-                name="matricula"
-                value={form.matricula}
+                placeholder="Alterar o Id do curso?"
+                name="idCurso"
+                value={formCourses.idCurso}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Nome do servidor</Form.Label>
+              <Form.Label>Nome do curso</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o nome completo do servidor?"
+                placeholder="Alterar o nome do Curso?"
                 name="nome"
-                value={form.nome}
+                value={formCourses.nome}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Foto do servidor</Form.Label>
+              <Form.Label>Foto do curso</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o link da foto do servidor?"
+                placeholder="Alterar o link da foto do curso?"
                 name="foto"
-                value={form.foto}
+                value={formCourses.foto}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -88,36 +88,36 @@ function EditCourse({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Órgão</Form.Label>
+              <Form.Label>Forma de realização</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o nome do órgão ao qual o servidor está vinculado?"
-                name="orgao"
-                value={form.orgao}
+                placeholder="Alterar a forma de realização do curso?"
+                name="formaRealizacao"
+                value={formCourses.formaRealizacao}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Alterar o Tipo de vínculo?</Form.Label>
-              <Form.Select name="vinculo" onChange={handleChange}>
-                <option value={form.vinculo}>{form.vinculo}</option>
-                <option value="Estatutário">Estatutário</option>
-                <option value="Comissionado">Comissionado</option>
-                <option value="Terceirizado">Terceirizado</option>
-                <option value="Estagiário">Estagiário</option>
-              </Form.Select>
+              <Form.Label>Local</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Alterar o local do curso?"
+                name="local"
+                value={formCourses.local}
+                onChange={handleChange}
+              />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Data de admissão do servidor</Form.Label>
+              <Form.Label>Ofertante</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar a data de admissão do servidor?"
-                name="dataAdmissao"
-                value={form.dataAdmissao}
+                placeholder="Alterar o ofertante do curso?"
+                name="ofertante"
+                value={formCourses.ofertante}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -126,36 +126,36 @@ function EditCourse({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Cargo</Form.Label>
+              <Form.Label>Período de inscrição</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o cargo do servidor?"
-                name="cargo"
-                value={form.cargo}
+                placeholder="Alterar o período de inscrição do curso?"
+                name="periodoInscricao"
+                value={formCourses.periodoInscricao}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Lotação</Form.Label>
+              <Form.Label>Vagas</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar a cidade de lotação do servidor?"
-                name="lotacao"
-                value={form.lotacao}
+                placeholder="Alterar a quantidade de vagas do curso?"
+                name="vagas"
+                value={formCourses.vagas}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Departamento de Exercício</Form.Label>
+              <Form.Label>Período de realização</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o departamento de exercício do servidor?"
-                name="exercicio"
-                value={form.exercicio}
+                placeholder="Alterar o período de realização do curso?"
+                name="periodoRealizacao"
+                value={formCourses.periodoRealizacao}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -164,36 +164,36 @@ function EditCourse({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Endereço de e-mail</Form.Label>
+              <Form.Label>Valor</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Alterar o endereço de e-mail do servidor?"
-                name="email"
-                value={form.email}
+                type="text"
+                placeholder="Alterar o valor do curso?"
+                name="valor"
+                value={formCourses.valor}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Número de telefone</Form.Label>
+              <Form.Label>Tipo de curso</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o número de telefone fixo (com DDD)?"
-                name="telefone"
-                value={form.telefone}
+                placeholder="Alterar o tipo de curso?"
+                name="tipo"
+                value={formCourses.tipo}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Número de telefone celular</Form.Label>
+              <Form.Label>Site</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o número de telefone celular (com DDD)?"
-                name="celular"
-                value={form.celular}
+                placeholder="Alterar o site do curso?"
+                name="site"
+                value={formCourses.site}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -202,36 +202,36 @@ function EditCourse({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group>
-              <Form.Label>Data de nascimento do servidor</Form.Label>
+              <Form.Label>Descrição do curso</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar da Data de nascimento do servidor?"
-                name="dataNascimento"
-                value={form.dataNascimento}
+                placeholder="Alterar a descrição do curso?"
+                name="descricao"
+                value={formCourses.descricao}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Naturalidade</Form.Label>
+              <Form.Label>Critérios de seleção</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o nome da cidade onde o servidor nasceu?"
-                name="Naturalidade"
-                value={form.Naturalidade}
+                placeholder="Alterar os critérios de seleção?"
+                name="criteriosSelecao"
+                value={formCourses.criteriosSelecao}
                 onChange={handleChange}
               />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>CPF</Form.Label>
+              <Form.Label>Situação</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Alterar o número do CPF do servidor?"
-                name="cpf"
-                value={form.cpf}
+                placeholder="Alterar a situação do curso?"
+                name="situacao"
+                value={formCourses.situacao}
                 onChange={handleChange}
               />
             </Form.Group>
