@@ -31,18 +31,6 @@ function AddGovEmployee({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Número da matrícula do servidor</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insira o número da matrícula"
-                name="matricula"
-                value={form.matricula}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3">
               <Form.Label>Nome do servidor</Form.Label>
               <Form.Control
                 type="text"
@@ -67,12 +55,27 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
         </Row>
         <Row>
+          <h4>Informações Funcionais</h4>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Número da matrícula</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Insira o número da matrícula"
+                name="matricula"
+                value={form.matricula}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Órgão</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Insira o nome do òrgão ao qual o servidor está vinculado"
+                placeholder="Insira o nome do órgão ao qual o servidor está vinculado"
                 name="orgao"
                 value={form.orgao}
                 onChange={handleChange}
@@ -81,7 +84,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Tipo de vinculo</Form.Label>
+              <Form.Label>Tipo de vínculo</Form.Label>
               <Form.Select name="vinculo" onChange={handleChange}>
                 <option value="0">Selecione uma opção</option>
                 <option value="Estatutário">Estatutário</option>
@@ -93,7 +96,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Data de admissão do servidor</Form.Label>
+              <Form.Label>Data de admissão</Form.Label>
               <Form.Control
                 type="date"
                 name="dataAdmissao"
@@ -166,39 +169,18 @@ function AddGovEmployee({ apiURL, form, setForm }) {
               />
             </Form.Group>
           </Col>
-          <Col>
-            <Form.Group className="mb-3">
-              <Form.Label>Número de telefone celular</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insira o número de telefone celular (com DDD)"
-                name="celular"
-                value={form.celular}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
+        </Row>
+        <Row>
+          <h4>Informações Pessoais</h4>
         </Row>
         <Row>
           <Col>
             <Form.Group>
-              <Form.Label>Data de nascimento do servidor</Form.Label>
+              <Form.Label>Data de nascimento</Form.Label>
               <Form.Control
                 type="date"
                 name="dataNascimento"
                 value={form.dataNascimento}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3">
-              <Form.Label>Naturlidade</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insira o nome da cidade onde o servidor nasceu"
-                name="Naturalidade"
-                value={form.Naturalidade}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -211,6 +193,32 @@ function AddGovEmployee({ apiURL, form, setForm }) {
                 placeholder="Insira o número do CPF do servidor"
                 name="cpf"
                 value={form.cpf}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Naturalidade</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Insira o nome da cidade onde o servidor nasceu"
+                name="Naturalidade"
+                value={form.Naturalidade}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Número de telefone celular</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Insira o número de telefone celular (com DDD)"
+                name="celular"
+                value={form.celular}
                 onChange={handleChange}
               />
             </Form.Group>
