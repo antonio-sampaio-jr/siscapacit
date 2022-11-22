@@ -187,20 +187,6 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>CPF</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Insira o número do CPF do servidor"
-                name="cpf"
-                value={form.cpf}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Form.Group className="mb-3">
               <Form.Label>Naturalidade</Form.Label>
               <Form.Control
                 type="text"
@@ -225,7 +211,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
         </Row>
         <p />
-        <Button variant="secondary" onClick={() => navigate(-1)}>
+        <Button variant="secondary" onClick={() => navigate(-1)} style={{margin:"10px"}}>
           Voltar
         </Button>
         <Button variant="success" type="submit">

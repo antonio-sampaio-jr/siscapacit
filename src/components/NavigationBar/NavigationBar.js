@@ -18,7 +18,6 @@ function NavigationBar() {
                         <Link className="btn btn-outline-light btn-lg m-1" role="button" to="/">HomePage</Link>
                         <Link className="btn btn-outline-light btn-lg m-1" role="button" to="/listarServidores">Servidores</Link>
                         <Link className="btn btn-outline-light btn-lg m-1" role="button" to="#">Cursos</Link>
-                        <Link className="btn btn-outline-light btn-lg m-1" role="button" to="#">Relatórios</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -42,9 +42,9 @@ function GovEmployeeList({ apiURL }) {
                     <td>{employee.orgao}</td>
                     <td>{employee.lotacao}</td>
                     <td>{employee.email}</td>
-                    <td>
+                    <td style={{width:'250px'}}>
                         <Link className="btn btn-outline-primary btn-sm m-1" role="button" to={`/listarServidor/${employee._id}`}>Detalhar</Link>
-                        <Link className="btn btn-outline-secondary btn-sm m-1" role="button" to="#">Alterar</Link>
+                        <Link className="btn btn-outline-secondary btn-sm m-1" role="button" to={`/editarServidor/${employee._id}`}>Alterar</Link>
                         <Button variant="danger" size="sm" onClick={() => {window.confirm("Deseja realmente EXCLUIR?") && deleteEmployee(employee._id)}}>Excluir</Button>     
                     </td>
                 </tr>
