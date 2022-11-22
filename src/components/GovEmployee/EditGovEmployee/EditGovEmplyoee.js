@@ -107,7 +107,7 @@ function EditGovEmployee({ apiURL, form, setForm }) {
             <Col>
               <Form.Group>
                 <Form.Label>Alterar o Tipo de vínculo?</Form.Label>
-                <Form.Select name="vinculo" onChange={handleChange}>
+                <Form.Select name="vinculo" onChange={handleChange} value={form.vinculo}>
                   <option value="0">Selecione uma opção</option>
                   <option value="Estatutário">Estatutário</option>
                   <option value="Comissionado">Comissionado</option>
