@@ -6,7 +6,8 @@ function HomePage() {
         <Container style={{ height: '100vh' }} className="d-flex align-items-center justify-content-center">
             <Button className="p-4" variant="primary" size="lg">
                 <Link className="nav-link" to="/listarServidores">
-                    Entrar no Sistema de Capacitação de Servidores (SisCAPACIT)
+                    Entrar no Sistema de Capacitação de Servidores (SisCAPACIT 1.0)
+                    <p />= MÓDULO ADMIN =
                 </Link>
             </Button>
         </Container>

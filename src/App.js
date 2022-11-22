@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage";
 import GovEmployeeList from "./components/GovEmployee/GovEmployeeList/GovEmployeeList";
 import GovEmployeeDetails from "./components/GovEmployee/GovEmployeeDetails/GovEmployeeDetails";
 import AddGovEmployee from "./components/GovEmployee/AddGovEmployee/AddGovEmployee";
+import EditGovEmployee from "./components/GovEmployee/EditGovEmployee/EditGovEmplyoee";
 
 function App() {
   const apiURL = "https://ironrest.cyclic.app/servidorespublicos";
@@ -48,6 +49,12 @@ function App() {
           path="/cadastrarServidor"
           element={
             <AddGovEmployee apiURL={apiURL} form={form} setForm={setForm} />
+          }
+        />
+        <Route
+          path="//editarServidor/:id"
+          element={
+            <EditGovEmployee apiURL={apiURL} form={form} setForm={setForm} />
           }
         />
         <Route path="*" element={<ErrorPage />} />

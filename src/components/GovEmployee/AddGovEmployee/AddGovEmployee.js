@@ -72,7 +72,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
               <Form.Label>Órgão</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Insira o nome do òrgão ao qual o servidor está vinculado"
+                placeholder="Insira o nome do órgão ao qual o servidor está vinculado"
                 name="orgao"
                 value={form.orgao}
                 onChange={handleChange}
@@ -81,7 +81,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Tipo de vinculo</Form.Label>
+              <Form.Label>Tipo de vínculo</Form.Label>
               <Form.Select name="vinculo" onChange={handleChange}>
                 <option value="0">Selecione uma opção</option>
                 <option value="Estatutário">Estatutário</option>
@@ -193,7 +193,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Naturlidade</Form.Label>
+              <Form.Label>Naturalidade</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Insira o nome da cidade onde o servidor nasceu"
@@ -217,7 +217,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
           </Col>
         </Row>
         <p />
-        <Button variant="secondary" onClick={() => navigate(-1)}>
+        <Button variant="secondary" onClick={() => navigate(-1)} style={{margin:"10px"}}>
           Voltar
         </Button>
         <Button variant="success" type="submit">

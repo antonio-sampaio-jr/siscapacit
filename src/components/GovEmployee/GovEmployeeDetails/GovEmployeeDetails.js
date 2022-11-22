@@ -23,7 +23,7 @@ function GovEmployeeDetails({ apiURL }) {
     }, [id])
    
     return (
-        <Container style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center">
+        <Container style={{ height: '100vh' }} className="d-flex justify-content-center align-items-center">
             
             <Card className="text-center w-100">
                 <Card.Header>
@@ -36,7 +36,7 @@ function GovEmployeeDetails({ apiURL }) {
                     < p/>
                     <Row>
                         <Col>
-                            <Card.Img variant="top" src={employee.foto} />
+                            <Card.Img variant="top" src={employee.foto} style={{ height: '200px',width:'200px' }}/>
                         </Col>
                         <Col>
                             <ListGroup variant="flush">
