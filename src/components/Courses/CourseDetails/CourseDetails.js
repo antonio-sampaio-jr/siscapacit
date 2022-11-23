@@ -29,7 +29,11 @@ function CourseDetails({ apiURLCourses }) {
         <Card.Header>
           <Card.Title className="m-0">
             <h3>{course.nome}</h3>
-            <a href={course.site} target="_blank" rel="noreferrer">{course.site}</a>
+            <a href={course.site} target="_blank" rel="noreferrer">
+              {course.site}
+            </a>
+            <p />
+            <p>Situação: {course.situacao}</p>
           </Card.Title>
         </Card.Header>
         <Card.Body>
