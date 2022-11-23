@@ -14,7 +14,7 @@ function EditCourse({ apiURLCourses, formCourses, setFormCourses }) {
     };
 
     fetchCourse();
-  }, [id]);
+  }, [id, apiURLCourses, setFormCourses]);
 
   // monitorar todas as mudanças do nosso formulário
   const handleChange = (e) => {

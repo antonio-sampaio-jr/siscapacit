@@ -42,7 +42,7 @@ function AddCourse({ apiURLCourses, formCourses, setFormCourses }) {
       criteriosSelecao: "",
       situacao: "",
     });
-  }, []);
+  }, [setFormCourses]);
 
   return (
     <Container>

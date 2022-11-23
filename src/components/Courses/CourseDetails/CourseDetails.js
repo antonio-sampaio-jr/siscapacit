@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, ListGroup, Row } from "react-bootstrap";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function CourseDetails({ apiURLCourses }) {
   const [course, setCourse] = useState({});
@@ -18,7 +18,7 @@ function CourseDetails({ apiURLCourses }) {
     } catch (error) {
       console.log(error);
     }
-  }, [id]);
+  }, [id, apiURLCourses]);
 
   return (
     <Container
