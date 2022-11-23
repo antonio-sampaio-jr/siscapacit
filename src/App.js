@@ -16,9 +16,8 @@ import AddCourse from "./components/Courses/AddCourse/AddCourse";
 import EditCourse from "./components/Courses/EditCourse/EditCourse";
 
 function App() {
-  const apiURL = "https://ironrest.cyclic.app/servidorespublicos";
-  const apiURLCourses = "https://ironrest.cyclic.app/cursos";
-
+  
+  const apiURL = "https://ironrest.cyclic.app/cursos";
   const [form, setForm] = useState({
     matricula: "",
     nome: "",
