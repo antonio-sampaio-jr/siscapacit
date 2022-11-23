@@ -16,7 +16,8 @@ import AddCourse from "./components/Courses/AddCourse/AddCourse";
 import EditCourse from "./components/Courses/EditCourse/EditCourse";
 
 function App() {
-  const apiURL = "https://ironrest.cyclic.app/cursos";
+  const apiURL = "https://ironrest.cyclic.app/servidorespublicos";
+  const apiURLCourses = "https://ironrest.cyclic.app/cursos";
 
   const [form, setForm] = useState({
     matricula: "",
@@ -34,6 +35,24 @@ function App() {
     cpf: "",
     dataNascimento: "",
     Naturalidade: "",
+  });
+
+  const [formCourses, setFormCourses] = useState({
+    nome: "",
+    idCurso: "",
+    formaRealizacao: "",
+    foto: "",
+    local: "",
+    ofertante: "",
+    periodoInscricao: "",
+    vagas: "",
+    periodoRealizacao: "",
+    valor: "",
+    tipo: "",
+    site: "",
+    descricao: "",
+    criteriosSelecao: "",
+    situacao: "",
   });
 
   return (
@@ -56,29 +75,37 @@ function App() {
           }
         />
         <Route
-          path="//editarServidor/:id"
+          path="/editarServidor/:id"
           element={
             <EditGovEmployee apiURL={apiURL} form={form} setForm={setForm} />
           }
         />
         <Route
           path="/listarCursos"
-          element={<CourseList apiURL={apiURL} />}
+          element={<CourseList apiURLCourses={apiURLCourses} />}
         />
         <Route
           path="/listarCurso/:id"
-          element={<CourseDetails apiURL={apiURL} />}
+          element={<CourseDetails apiURLCourses={apiURLCourses} />}
         />
         <Route
           path="/cadastrarCurso"
           element={
-            <AddCourse apiURL={apiURL} form={form} setForm={setForm} />
+            <AddCourse
+              apiURLCourses={apiURLCourses}
+              formCourses={formCourses}
+              setFormCourses={setFormCourses}
+            />
           }
         />
         <Route
-          path="//editarCurso/:id"
+          path="/editarCurso/:id"
           element={
-            <EditCourse apiURL={apiURL} form={form} setForm={setForm} />
+            <EditCourse
+              apiURLCourses={apiURLCourses}
+              formCourses={formCourses}
+              setFormCourses={setFormCourses}
+            />
           }
         />
         <Route path="*" element={<ErrorPage />} />
