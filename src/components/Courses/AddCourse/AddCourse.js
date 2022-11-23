@@ -67,7 +67,7 @@ function AddCourse({ apiURLCourses, formCourses, setFormCourses }) {
             <Form.Group className="mb-3">
               <Form.Label>Foto do curso</Form.Label>
               <Form.Control
-                required 
+                required
                 type="text"
                 placeholder="Insira o link para a foto do curso"
                 name="foto"
@@ -186,16 +186,16 @@ function AddCourse({ apiURLCourses, formCourses, setFormCourses }) {
             </Form.Group>
           </Col>
         </Row>
-        <Row> 
+        <Row>
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Tipo de curso</Form.Label>
-              <Form.Select name="vinculo" onChange={handleChange}>
+              <Form.Select name="tipo" onChange={handleChange}>
                 <option value="0">Selecione uma opção</option>
-                <option value="Estatutário">Aperfeiçoamento</option>
-                <option value="Comissionado">Especialização</option>
-                <option value="Terceirizado">Mestrado</option>
-                <option value="Estagiário">Doutorado</option>
+                <option value="Aperfeiçoamento">Aperfeiçoamento</option>
+                <option value="Especialização">Especialização</option>
+                <option value="Mestrado">Mestrado</option>
+                <option value="Doutorado">Doutorado</option>
               </Form.Select>
             </Form.Group>
           </Col>
@@ -228,7 +228,7 @@ function AddCourse({ apiURLCourses, formCourses, setFormCourses }) {
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Situação</Form.Label>
-              <Form.Select name="vinculo" onChange={handleChange}>
+              <Form.Select name="situacao" onChange={handleChange}>
                 <option value="0">Selecione uma opção</option>
                 <option value="Inscrições Abertas">Inscrições Abertas</option>
                 <option value="Em Andamento">Em Andamento</option>
@@ -243,7 +243,8 @@ function AddCourse({ apiURLCourses, formCourses, setFormCourses }) {
               <Form.Label>Descrição do curso</Form.Label>
               <Form.Control
                 required
-                as="textarea" rows={4}
+                as="textarea"
+                rows={4}
                 placeholder="Insira uma breve descrição do curso"
                 name="descricao"
                 value={formCourses.descricao}

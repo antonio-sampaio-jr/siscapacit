@@ -178,7 +178,7 @@ function EditCourse({ apiURLCourses, formCourses, setFormCourses }) {
             <Form.Group className="mb-3">
               <Form.Label>Tipo de curso</Form.Label>
               <Form.Select
-                value={formCourses.tipo} 
+                value={formCourses.tipo}
                 name="tipo"
                 onChange={handleChange}
               >
@@ -230,13 +230,15 @@ function EditCourse({ apiURLCourses, formCourses, setFormCourses }) {
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Situação</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Alterar a situação do curso?"
-                name="situacao"
+              <Form.Select
                 value={formCourses.situacao}
+                name="situacao"
                 onChange={handleChange}
-              />
+              >
+                <option value="Inscrições Abertas">Inscrições Abertas</option>
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Concluído">Concluído</option>
+              </Form.Select>
             </Form.Group>
           </Col>
         </Row>
