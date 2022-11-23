@@ -29,7 +29,7 @@ function CourseDetails({ apiURLCourses }) {
         <Card.Header>
           <Card.Title className="m-0">
             <h3>{course.nome}</h3>
-            <Link>{course.site}</Link>
+            <a href={course.site} target="_blank" rel="noreferrer">{course.site}</a>
           </Card.Title>
         </Card.Header>
         <Card.Body>
@@ -41,6 +41,7 @@ function CourseDetails({ apiURLCourses }) {
                 src={course.foto}
                 style={{ height: "200px", width: "200px" }}
               />
+              <p />
             </Col>
 
             <Col>
@@ -68,7 +69,7 @@ function CourseDetails({ apiURLCourses }) {
                   Tipo de curso: {course.tipo}
                 </ListGroup.Item>
                 <ListGroup.Item action variant="success">
-                  Valor: {course.valor}
+                  Valor: R${course.valor}
                 </ListGroup.Item>
                 <ListGroup.Item action variant="warning">
                   Período de realização: {course.periodoRealizacao}

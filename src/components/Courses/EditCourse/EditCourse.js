@@ -177,13 +177,16 @@ function EditCourse({ apiURLCourses, formCourses, setFormCourses }) {
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Tipo de curso</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Alterar o tipo de curso?"
+              <Form.Select
+                value={formCourses.tipo} 
                 name="tipo"
-                value={formCourses.tipo}
                 onChange={handleChange}
-              />
+              >
+                <option value="Aperfeiçoamento">Aperfeiçoamento</option>
+                <option value="Especialização">Especialização</option>
+                <option value="Mestrado">Mestrado</option>
+                <option value="Doutorado">Doutorado</option>
+              </Form.Select>
             </Form.Group>
           </Col>
           <Col>

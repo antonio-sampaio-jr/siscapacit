@@ -1,10 +1,12 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {IMaskInput} from 'react-imask';
 
 function AddGovEmployee({ apiURL, form, setForm }) {
   const navigate = useNavigate();
-
+  
   const handleChange = (e) => {
     //monitoramento dos inputs
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -23,6 +25,26 @@ function AddGovEmployee({ apiURL, form, setForm }) {
     }
   };
 
+  useEffect(() => {
+    setForm({
+      matricula: "",
+      nome: "",
+      foto: "",
+      orgao: "",
+      vinculo: "",
+      cargo: "",
+      lotacao: "",
+      exercicio: "",
+      email: "",
+      telefone: "",
+      celular: "",
+      dataAdmissao: "",
+      cpf: "",
+      dataNascimento: "",
+      Naturalidade: "",
+    });
+  }, []);
+
   return (
     <Container>
       <p />
@@ -33,6 +55,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Nome do servidor</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o nome completo do servidor"
                 name="nome"
@@ -45,6 +68,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Foto do servidor</Form.Label>
               <Form.Control
+                required 
                 type="text"
                 placeholder="Insira o link para a foto do servidor"
                 name="foto"
@@ -62,6 +86,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Número da matrícula</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o número da matrícula"
                 name="matricula"
@@ -74,6 +99,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Órgão</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o nome do órgão ao qual o servidor está vinculado"
                 name="orgao"
@@ -98,6 +124,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group>
               <Form.Label>Data de admissão</Form.Label>
               <Form.Control
+                required
                 type="date"
                 name="dataAdmissao"
                 value={form.dataAdmissao}
@@ -111,6 +138,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Cargo</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o cargo do servidor"
                 name="cargo"
@@ -123,6 +151,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Lotação</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira a cidade de lotação do servidor"
                 name="lotacao"
@@ -135,6 +164,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Departamento de Exercício</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o departamento de exercício do servidor"
                 name="exercicio"
@@ -149,6 +179,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Endereço de e-mail</Form.Label>
               <Form.Control
+                required
                 type="email"
                 placeholder="Insira o endereço de e-mail do servidor"
                 name="email"
@@ -161,6 +192,9 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Número de telefone</Form.Label>
               <Form.Control
+                required
+                as={IMaskInput}
+                mask="(00)0000-0000"
                 type="text"
                 placeholder="Insira o número de telefone fixo (com DDD)"
                 name="telefone"
@@ -176,8 +210,23 @@ function AddGovEmployee({ apiURL, form, setForm }) {
         <Row>
           <Col>
             <Form.Group>
+              <Form.Label>CPF</Form.Label>
+              <Form.Control
+                required
+                as={IMaskInput}
+                mask="000.000.000-00"
+                placeholder="Digite o seu CPF"
+                name="cpf"
+                value={form.cpf}
+                onChange={handleChange}
+            />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
               <Form.Label>Data de nascimento</Form.Label>
               <Form.Control
+                required
                 type="date"
                 name="dataNascimento"
                 value={form.dataNascimento}
@@ -189,6 +238,7 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Naturalidade</Form.Label>
               <Form.Control
+                required
                 type="text"
                 placeholder="Insira o nome da cidade onde o servidor nasceu"
                 name="Naturalidade"
@@ -201,6 +251,9 @@ function AddGovEmployee({ apiURL, form, setForm }) {
             <Form.Group className="mb-3">
               <Form.Label>Número de telefone celular</Form.Label>
               <Form.Control
+                required
+                as={IMaskInput}
+                mask="(00)00000-0000"
                 type="text"
                 placeholder="Insira o número de telefone celular (com DDD)"
                 name="celular"
